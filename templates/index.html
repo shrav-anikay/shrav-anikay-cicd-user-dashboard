@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+</head>
+
+<body>
+
+    <h1>User Dashboard</h1>
+
+    <h2>Total Users</h2>
+    <p>{{ total_users }}</p>
+
+    <h2>Age Distribution</h2>
+
+    <ul>
+        {% for age, count in age_distribution.items() %}
+            <li>Age {{ age }} : {{ count }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Occupation Grouping</h2>
+
+    <ul>
+        {% for occupation, count in occupation_group.items() %}
+            <li>{{ occupation }} : {{ count }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
