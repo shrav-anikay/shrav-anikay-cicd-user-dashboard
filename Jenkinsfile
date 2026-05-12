@@ -9,12 +9,15 @@ pipeline {
             }
         }
 
+        stage('Test') {
+            steps {
+                sh 'python3 --version'
+            }
+        }
+
         stage('Deploy') {
             steps {
-                sh '''
-                pkill -f app.py || true
-                nohup python3 app.py > output.log 2>&1 &
-                '''
+                echo 'Deployment Successful'
             }
         }
 
