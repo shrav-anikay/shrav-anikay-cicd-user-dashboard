@@ -9,21 +9,11 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                sh '''
-                python3 -m venv venv
-                . venv/bin/activate
-                pip install -r requirements.txt
-                '''
-            }
-        }
-
         stage('Deploy') {
             steps {
                 sh '''
                 pkill -f app.py || true
-                nohup venv/bin/python3 app.py > output.log 2>&1 &
+                nohup python3 app.py > output.log 2>&1 &
                 '''
             }
         }
